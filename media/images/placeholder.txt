@@ -1,0 +1,42 @@
+# Media Assets Placeholder
+
+This folder contains placeholder references for the following images:
+
+## Required Images:
+- logo.png - Company logo for navbar and footer
+- background.png - Background image for hero section (home page) and page headers
+- member1.jpg - Testimonial member photo (Sarah Johnson)
+- member2.jpg - Testimonial member photo (Mike Chen)  
+- member3.jpg - Testimonial member photo (Emily Davis)
+- gym-interior.jpg - Gym interior photo for About page
+- trainer1.jpg - Marcus Johnson (Founder & Head Trainer)
+- trainer2.jpg - Sarah Williams (Yoga & Pilates Instructor)
+- trainer3.jpg - David Chen (Cardio & HIIT Specialist)
+
+## Image Specifications:
+- Format: JPG or PNG
+- Size: Optimized for web (under 500KB each)
+- Dimensions: 
+  - Logo: 200x80px (recommended for navbar)
+  - Background: 1920x1080px (full HD, landscape)
+  - Member photos: 300x300px (square)
+  - Trainer photos: 300x300px (square)
+  - Gym interior: 800x600px (landscape)
+- Quality: High resolution, professional photos
+
+## Video Assets:
+- gym-hero.mp4 - Background video for hero section
+  - Format: MP4
+  - Duration: 10-15 seconds (looped)
+  - Resolution: 1920x1080 minimum
+  - File size: Under 5MB
+
+## Icons:
+- Custom fitness icons (if needed)
+- Social media icons (handled by Font Awesome)
+
+## Usage Notes:
+- All images should be optimized for web
+- Use appropriate alt text for accessibility
+- Consider using WebP format for better compression
+- Implement lazy loading for better performance

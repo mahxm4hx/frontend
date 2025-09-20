@@ -10,7 +10,6 @@ function initializeApp() {
     // Initialize all features
     initScrollToTop();
     initCounterAnimation();
-    initPricingToggle();
     initMembershipModal();
     initSmoothScrolling();
     initNavbarScroll();
@@ -108,35 +107,6 @@ function initCounterAnimation() {
     });
 }
 
-// Pricing Toggle (Monthly/Yearly)
-function initPricingToggle() {
-    const toggleButtons = document.querySelectorAll('.pricing-toggle button');
-    const monthlyPrices = document.querySelectorAll('.monthly-price');
-    const yearlyPrices = document.querySelectorAll('.yearly-price');
-    const yearlySavings = document.querySelectorAll('.yearly-savings');
-
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const plan = this.getAttribute('data-plan');
-            
-            // Update button states
-            toggleButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Toggle prices
-            if (plan === 'yearly') {
-                monthlyPrices.forEach(price => price.style.display = 'none');
-                yearlyPrices.forEach(price => price.style.display = 'inline');
-                yearlySavings.forEach(saving => saving.style.display = 'block');
-            } else {
-                monthlyPrices.forEach(price => price.style.display = 'inline');
-                yearlyPrices.forEach(price => price.style.display = 'none');
-                yearlySavings.forEach(saving => saving.style.display = 'none');
-            }
-        });
-    });
-}
-
 // Membership Modal
 function initMembershipModal() {
     const modal = document.getElementById('signupModal');
@@ -148,7 +118,17 @@ function initMembershipModal() {
             const planInput = document.getElementById('plan');
             
             if (planInput) {
-                planInput.value = plan.charAt(0).toUpperCase() + plan.slice(1) + ' Plan';
+                const planLower = (plan || '').toLowerCase();
+                if (planInput.tagName === 'SELECT') {
+                    // If select has matching option values (basic/premium/elite), set it
+                    const hasOption = Array.from(planInput.options).some(opt => opt.value === planLower);
+                    if (hasOption) {
+                        planInput.value = planLower;
+                    }
+                } else {
+                    // Fallback for non-select inputs
+                    planInput.value = planLower ? planLower.charAt(0).toUpperCase() + planLower.slice(1) + ' Plan' : '';
+                }
             }
         });
     });
